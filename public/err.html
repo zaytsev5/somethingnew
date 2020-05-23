@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Single Page Application</title>
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" href="/panel.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!--  -->
+</head>
+<body>
+  <div class="control-panel">
+   <header class="header">
+      <div class="logo-brand upper-case">
+        <i class="fas fa-bus"></i><span><strong> Book</strong>Your<strong>Bus</strong></span>
+      </div>
+      <div class="nav-bar upper-case">
+         <ul>
+            <li class="center">Trang chủ</li>
+            <li class="center">Chuyến xe</li>
+            <li class="center">Tuyển dụng</li>
+            <li class="center">Đặt vé</li>
+          </ul>
+      </div>
+      <div class="action faded">
+           <ul>
+            <li class="center"><a href="/getting-started/register"  >Đăng kí</a></li>
+            <li class="center"><a href="/getting-started/login" >Đăng nhập</a></li>
+
+          </ul>
+     
+      </div>
+    </header>
+  </div>
+ 	<div class="page">
+ 		<h2> Page not found</h2>
+ 	</div>
+
+</body>
+<style>
+  :root {
+  --main: #EC5D10;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+body{
+  font-family: 'Montserrat', sans-serif;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  font-size: 13px;
+}
+ .page{
+	margin-top: 200px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+ 
+}
+.pahe h2{
+	color: black;
+}
+button{
+  font-family: 'Montserrat', sans-serif;
+
+}
+.upper-case{
+  text-transform: uppercase;
+
+}
+.control-panel .header{
+
+  width:100%;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background-color: white;
+  color:black;
+  line-height: 50px;
+  position: fixed;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  }
+.control-panel i{
+  color:#EC5D10;
+
+}
+.header .logo-brand {
+  font-size: 25px;
+  margin-left:50px;
+}
+.control-panel .nav-bar ul{
+  position: absolute;
+  left: 45%;
+  top:-35%;
+  display: grid;
+  grid-gap: 10px;
+  padding: 0px 0;
+  list-style: none;
+  grid-template-columns: repeat(4 ,100px);
+}
+.control-panel .nav-bar li{
+  font-size: 14px;
+}
+.control-panel .action ul{
+
+ position: absolute;
+  right: 5%;
+  top:-35%;
+  display: grid;
+  grid-gap: 10px;
+  padding: 0px 0;
+  list-style: none;
+  grid-template-columns: repeat(2 ,80px);
+
+  
+
+}
+.control-panel  .header ul a{
+  color: black;
+  text-decoration: none;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box{
+  width: 100%;
+  height: 600px;
+  top: 0;
+  background-image: url('https://static.vexere.com/production/banners/330/neu-ban-phai-di.png');
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 100;
+  
+
+}
+.search-box input{
+  height: 35px;
+  border:none;
+  border-radius: 3px;
+  margin-right: 20px;
+   font-family: 'Montserrat', sans-serif;
+}
+
+.search-box .search {
+  display: inline-block;
+}
+.search-box  button{
+  width: 120px;
+  height: 35px;
+  color: white;
+  background: var(--main);
+  border: none;
+  border-radius: 2px;
+  font-size: 17px;
+   font-family: 'Montserrat', sans-serif;
+}
+.search-box .cloud-move1,.search-box .cloud-move2{
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  background:red;
+  z-index: 99;
+
+}
+
+
+</style>
+</html>

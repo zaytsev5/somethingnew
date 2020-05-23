@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Flatpickr CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+    <!-- My own CSS -->
+    <link rel="stylesheet" type="text/css" href="/panel.css">
+    <link rel="stylesheet" type="text/css" href="glider.css">
+
+     <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
+    <link rel="stylesheet" href="/glide.core.min.css">
+    <link rel="stylesheet" href="/glide.theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+
+     
+    <!-- Import font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--  Flatpickr  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+
+   <title>ticketMe| Trang chủ</title>
+  </head>
+  <body>
+<div class="container">
+    <% include ./partials/header %>
+
+  <div class="search-box center">
+    <div class="title">
+      <p class="left" onclick="moveLeft()"><</p>
+      <p class="right" onclick="moveRight()">></p>
+
+      <p>Thuận tiện và </p>
+      <p>Phong cách</p>
+      <small>Heaven never knows where you've been I dont wanna need to know i dont</small>
+      
+    </div>
+    <div class="search">
+      <div class="select">
+         <select name="format" id="source">
+            <option selected disabled >Chọn địa điểm đi</option>
+            <option value="SaiGon">Sài Gòn</option>
+            <option value="Quãng Nam">Quãng Nam</option>
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="Huế">Huế</option>
+            <option value="Quảng Bình">Quảng Bình</option>
+         </select>
+      </div>
+       <div class="select">
+         <select name="format" id="destination">
+            <option selected disabled>Chọn địa điểm đến</option>
+            <option value="DaLat">Đà Lạt</option>
+            <option value="KienGiang">Kiên Giang</option>
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="Huế">Huế</option>
+            <option value="Quảng Bình">Quảng Bình</option>
+         </select>
+
+      </div>
+    
+      <input type="text" id="basicDate" placeholder="Ngày di chuyển" class="center" data-input>
+      <div class="search-btn center">
+          <button type="submit" class="find-post upper-case " id="findBtn"><i class="fas fa-search" style="margin-right:15px;"></i>TÌM VÉ</button>
+      </div>
+     <!--  <input type="text" placeholder="  Địa điểm đến">
+      <input type="text" id="basicDate" placeholder="  Ngày di chuyển" data-input>
+      <button type="submit" class="find-post upper-case"><i class="fas fa-search"></i>TÌM VdÉ</button>
+       -->
+
+    </div>
+
+  </div>
+  <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><i class="fas fa-exclamation-circle fa-1x" style="margin-right: 20px; color: #f55448"></i>Không có chuyến xe phù hợp</p>
+  </div>
+
+</div>
+
+<div class="content">
+  <h2>Bến xe khách lớn</h2>
+
+  <div class="bus-station">
+      <div class="glide">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      <li class="glide__slide">
+         
+        <img src="https://www.dalattrip.com/media/2012/10/Dalat-Bus-Station.jpg" width="300px" height="300px" />
+            
+         
+        </li>
+     <li class="glide__slide">
+        
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/db/2c/d2/b-n-xe-mi-n-dong-tren.jpg"/>
+   
+        </li>
+      <li class="glide__slide">
+          <a href="/">
+        <img src="https://www.dalattrip.com/media/2012/10/Dalat-Bus-Station.jpg" width="300px" height="300px" />
+           
+          </a>
+        </li>
+        <li class="glide__slide">
+        
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/db/2c/d2/b-n-xe-mi-n-dong-tren.jpg"/>
+   
+        </li>
+    </ul>
+  </div>
+  <div class="glide__track" data-glide-el="track">...</div>
+
+  <div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-arrow-left"></i></button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-arrow-right"></i></button>
+  </div>
+</div>
+      <!-- <div class="slider-item center glider">
+        
+        <div class="image"><img src="http://localhost:5000/images/neu-ban-phai-di.png" alt="Drag to watch"/></div>
+        <div class="image"><img src="https://www.dalattrip.com/media/2012/10/Dalat-Bus-Station.jpg"/></div>
+        <div class="image"><img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/db/2c/d2/b-n-xe-mi-n-dong-tren.jpg"/></div>
+        <div class="image"><img src="http://localhost:5000/images/neu-ban-phai-di.png"/></div>
+        <div class="image"><img src="http://localhost:5000/images/neu-ban-phai-di.png"/></div>
+        <div class="image"><img src="https://www.dalattrip.com/media/2012/10/Dalat-Bus-Station.jpg"/></div>
+
+       
+      </div>
+         <button class="glider-prev">
+           <i class="fas fa-chervon-prev"></i>
+         </button>
+          <button class="glider-next">
+           <i class="fas fa-chervon-next"></i>
+         </button> -->
+  </div>
+  <div class="about-us">
+    <h2>Hệ thống đặt vé online tiện lợi, nhanh chóng</h2>
+    <div class="card-info center upper-case">
+        <div class="center">
+          <i class="fas fa-map-marked-alt fa-3x gray"></i>
+          <h4>Hơn 20 bến xe</h4>
+        </div >
+         <div class="center upper-case">
+          <i class="fas fa-road fa-3x gray"></i>
+          <h4>Hơn 100+ chuyến xe</h4>
+          
+        </div>
+         <div class="center upper-case">
+          <i class="fas fa-bus fa-3x gray"></i>
+          <h4>Đa dạng</h4>
+        
+        </div>
+         <div class="center upper-case">
+          <i class="fas fa-ticket-alt fa-3x gray"></i>
+          <h4>30+ đại lí bán vé</h4>
+         
+        </div>
+    </div>
+
+  </div>
+  <div class="promotion">
+    <h2>Uư đãi nổi bật</h2>
+  </div>
+  <div class="service">
+    <h2>Dịch vụ miễn phí<span>
+     <i class="fas fa-wifi fa-1x main"></i>
+     <i class="fas fa-wine-bottle fa-1x main"></i>
+    <i class="fas fa-toilet-paper fa-1x main"></i></span></h2>
+    
+  </div>
+</div>
+</div>
+<style>
+ 
+ 
+.glide__slide{
+  
+  text-align: center;
+  width: 250px;
+
+  border-radius: 2px;
+  
+}
+
+
+.glide__slide img{
+ width: 250px;
+  height:150px;
+  padding: 0;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  
+}
+button.glide__arrow {
+  /*background-color: green;*/
+  border: none;
+  font-size: 11px;
+}
+button.glide__arrow--left {
+  left: 5px;
+  background: #f9f9f9;
+  color: black;
+}
+button.glide__arrow--right {
+  right: 5px;
+  background: #f1f1f1;
+  color: black;
+
+
+}
+</style>
+
+    <% include ./partials/footer %>
+ 
+<script src="/home.js"></script>
+<script >
+  const firstSlogan = `<p class="left" onclick="moveLeft()"><</p>
+      <p class="right" onclick="moveRight()">></p>
+
+      <p>Thuận tiện và </p>
+      <p>Phong cách</p>
+      <small>Heaven never knows where you've been I dont wanna need to know i dont</small>`;
+  const secondSlogan = `<p class="left" onclick="moveLeft()"><</p>
+      <p class="right" onclick="moveRight()">> </p>
+
+      <p>An toàn và </p>
+      <p>Nhanh chóng</p>
+      <small>Heaven never knows where you've been I dont wanna need to know i dont</small>`
+  let rightClick = document.querySelector('.right')
+  const leftClick = document.querySelector('.left')
+
+ function moveRight(){
+    //  document.querySelector('.title').style.display = "none"
+      $('.title').fadeOut(500,function(){
+        $(this).html(secondSlogan).fadeIn(500);
+        $('.search-box').css('backgroundImage',`url("https://livedemo00.template-help.com/wt_60033/images/backgrounds/background-03-1920x950.jpg")`)
+      })
+  }
+
+ function moveLeft(){
+    console.log('clik')
+    //  document.querySelector('.title').style.display = "none"
+      $('.title').fadeOut(500,function(){
+        $(this).html(firstSlogan).fadeIn(500);
+        $('.search-box').css('backgroundImage',`url("https://livedemo00.template-help.com/wt_60033/images/backgrounds/background-02-1920x950.jpg")`)
+      })
+  }
+</script>
+
+  </body>
+
+
+
+</html>

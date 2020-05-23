@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Flatpickr CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+
+    <!-- Some Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- My own CSS -->
+    <link rel="stylesheet" type="text/css" href="/panel.css">
+    <link rel="stylesheet" type="text/css" href="glider.css">
+
+    <!-- Materialize Css -->
+      <!-- ...       -->
+
+     <script src="/owl.carousel.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+     <script src="https://unpkg.com/@glidejs/glide"></script>
+    <!-- Import font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--  Flatpickr  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+
+   <title>ticketMe| Trang chủ</title>
+  </head>
+  <body>
+<div class="container">
+    <% include ./partials/header %>
+  <div class="row profile">
+    <% include ./partials/mymessages %>
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <input type="text" id="search-ticketID" placeholder="Nhập mã vé">
+        <button id="lookup-ticket">Kiểm tra vé</button>
+        <p>Nếu bạn không thể hủy vé qua hệ thống thì vui lòng liên hệ 19001523 để được trợ giúp</p>
+        <!-- END MENU -->
+      </div>
+    </div>
+     <div id="myModal" class="modal">
+    <!-- Modal content -->
+                <div class="modal-content">
+                  
+                 <form action="">
+                  <p>Bạn có thực sự muốn hủy vé ? Nếu có hãy điền số thông tin tài khoản vào bên dưới và ấn nút Xác nhận để bạn có thể nhận được tiền hoàn trả</p>
+                   <input type="text" placeholder="Nhập số tài khoản" id="credit">
+                   <button type="button" onclick="handleCancledTicket()">Xác nhận</button>
+                   <button type="button" id="close-modal">Hủy bỏ</button>
+                 </form>
+                </div>
+
+          </div>
+    <div class="col-md-9">
+          <div class="profile-content">
+             
+          </div>
+    </div>
+
+  </div>
+
+<!-- <center>
+<strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a></strong>
+</center> -->
+<br>
+<br>
+  
+
+<!-- container -->
+   
+</div>
+ <% include ./partials/footer %>
+ <style>
+   
+
+/***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+.profile {
+  margin: 100px 0;
+  margin-bottom: 0px;
+  padding: 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px ;
+  background: #fff;
+}
+.profile-sidebar input,.profile-sidebar button{
+  margin-bottom: 10px;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+  height: 40px;
+  padding: 0 10px;
+  line-height: 40px;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li  {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul  :hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+  cursor: pointer;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active  {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 400px;
+}
+.control-panel .nav-bar ul,.control-panel .action ul{
+  padding-top: 15px;
+}
+table{
+    text-align: center;
+    width:100%;
+    margin-bottom:50px;
+  /*  margin-left: 50%;
+    transform: translate(-50%,0);*/
+    border: none;
+  }
+  .thead-light{
+    background: var(--main);
+    border-radius: 2px;
+    color: white;
+
+  }
+  table th {
+    height: 30px;
+    text-align: center;
+  }
+  tbody tr:nth-child(odd){
+    background: #e0d8d7;
+  }
+  td button {
+    border: none;
+    height: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .modal-content{
+    padding: 30px;
+    background: white;
+
+  }
+  .modal-content button{
+    padding: 10px;
+     background: var(--main);
+      color:white;
+      border: none;
+      border-radius: 2px;
+  }
+  .modal-content input{
+    height: 40px;
+    width:200px;
+  }
+input:focus{
+   outline: none;
+  }
+
+
+ </style>
+
+<script >
+  let ticketInfo = `<table >
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Má vé</th>
+      <th scope="col">Mã chuyến</th>
+      <th scope="col">Số ghế</th>
+      <th scope="col">CMND</th>
+      <th scope="col">Đơn giá</th>
+      <th scope="col">Ngày đặt</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>`;
+     
+$(document).ready(function(){
+      document.querySelector('.modal').style.display = 'block'
+  document.querySelector('#close-modal').addEventListener('click',()=>{
+      document.querySelector('.modal').style.display = 'none'
+  })
+  const checkTicket = document.querySelector('#lookup-ticket');
+  const searchticketID = document.querySelector('#search-ticketID')
+
+  checkTicket.addEventListener('click', async ()=>{
+     console.log(searchticketID.value)
+    const response =  await fetch(`http://localhost:5000/booking/ticket/${searchticketID.value}`)
+    const ticket = await response.json();
+    console.log(ticket)
+    if(ticket.length > 0){
+      ticketInfo +=  `<th scope="row">${ticket[0].MaHD}</th>
+      <td id="get-ticketID">${ticket[0].MaVeXe}</td>
+      <td >${ticket[0].MaCX}</td>
+      <td>${ticket[0].SoGhe}</td>
+      <td id="price">${ticket[0].DonGia}</td>
+      <td id="ticketCMND">${ticket[0].CMND}</td>
+      <td>${(ticket[0].NgayDat).slice(0,10)}</td>
+      <td><button onclick="showModal()">Hủy vé</button></td>
+
+      </tr>
+      </tbody>
+      </table>`;
+      $('.profile-content').html(ticketInfo)
+    }
+    else{
+      $('.profile-content').html("Không tìm thấy vé")
+
+    }
+  })
+
+})
+
+function handleCancledTicket(){
+
+  const price = document.querySelector('#price')
+  const ticketCMND = document.querySelector('#ticketCMND')
+  const credit = document.querySelector('#credit')
+  console.log($('#ticketCMND').text())
+
+}
+function showModal(){
+  document.querySelector('.modal').style.display = 'block'
+}
+
+
+
+
+</script>
+
+  </body>
+
+
+</html>

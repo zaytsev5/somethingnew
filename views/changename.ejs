@@ -1,0 +1,71 @@
+<div id="form-control">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i>Change name
+      </h1>
+      <% include ./partials/messages %>
+      <form action="/profile/edit?name=true" method="POST">
+        <div class="form-group">
+         
+          <input
+            type="name"
+            id="name"
+            name="name"
+            
+            value="<%= typeof user != 'undefined' ? user.name : 'nothing' %>"
+          />
+        </div>
+        <div class="form-group">
+        
+          <input
+            type="password"
+            id="password"
+            name="password"
+          placeholder="confirm password"
+            
+          />
+        </div>
+        </div>
+        <button type="submit" id="moveBtn">
+          <strong>Confirm</strong>
+        </button>
+      </form>
+      <p class="lead mt-4">Have An Account? <a href="/getting-started/login">Login</a></p>
+    </div>
+  </div>
+</div>
+  
+ <style>
+   
+    body{
+      font-family: 'Montserrat', sans-serif;
+    }
+    form .form-group{
+      padding-bottom :20px;
+    }
+    #form-control{
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1{
+      text-align: center;
+    }
+    input{
+      width: 40%;
+      height: 25px;
+      border:none;
+      border-bottom: 1px solid gray;
+      font-family: 'Montserrat', sans-serif;
+    }
+    #moveBtn{
+      width: 100px;
+      height: 30px;
+      background-color: #1e62d8;
+      color:white;
+      font-family: 'Montserrat', sans-serif;
+      border: none;
+      border-radius: 2px;
+
+    }
+  </style>

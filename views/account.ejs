@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Flatpickr CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+
+    <!-- Some Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- My own CSS -->
+    <link rel="stylesheet" type="text/css" href="/panel.css">
+    <link rel="stylesheet" type="text/css" href="glider.css">
+
+     <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
+
+
+     <script src="/owl.carousel.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+     <script src="https://unpkg.com/@glidejs/glide"></script>
+    <!-- Import font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--  Flatpickr  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+
+   <title>ticketMe| Trang chủ</title>
+  </head>
+  <body>
+<div class="container">
+    <% include ./partials/header %>
+  <div class="row profile">
+    <% include ./partials/mymessages %>
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="https://cdn0.iconfinder.com/data/icons/education-flat-7/128/17_Scholl_Bus-512.png" class="img-responsive" alt="">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            <%= user.name %>
+          </div>
+          <div class="profile-usertitle-job">
+            <%= user.email %>
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <!-- <div class="profile-userbuttons">
+          <button type="button" class="btn btn-success btn-sm">Follow</button>
+          <button type="button" class="btn btn-danger btn-sm">Message</button>
+        </div> -->
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="tab-change active" data-tab="password" id="change-password">
+             
+              <i class="fas fa-key"></i>
+              Thay đổi mật khẩu 
+            </li>
+            <li class="tab-change" data-tab="email"  id="change-email">
+             
+              <i class="fas fa-envelope"></i>
+              Thay đổi email 
+            </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+    <div class="col-md-9">
+            <div class="profile-content">
+              <div class="change-password-modal box show">
+                <h2 class="modal-tab">Thay đổi mật khẩu</h2>
+                  <section class="modal-body">
+                    <form class="modal-form form-pass"  action="/user/me/pass" method="POST">
+                      <div class="modal-form-group">
+                            <label for="new">Mật khẩu mới </label>
+                    <input type="text" name="new" value="" placeholder="Nhập mật khẩu mới" id="password" onkeyup="handleValid()">
+                      </div>
+                            <div class="modal-form-group">
+                            <label for="old">Xác nhận mật khẩu </label>
+                    <input type="password" name="old" value="" placeholder="Xác nhận mật khẩu" id="password2" >
+                      </div>
+                      <div class="modal-form-group">
+                        <span class="modal-hlp-txt">* Bạn sẽ đăng nhập lại nếu đổi mật khẩu thành công</span>
+                      </div>
+                    </form>
+                    <div class="password-guidelines">
+                      <div class="guidelines-description">
+                        <p class="pass-rule">Mật khẩu phải có ít nhất 6 ̉kí tự bao gồm chữ lần số</p>
+                        <p class="pass-rule">CMật khẩu phải có ít nhất 1 kí tự số</p> 
+                        <p class="pass-rule">Bao gồm ít nhất 1 kí tự đặc biệt (!@#$%^&*)</p>
+                        
+                      </div>
+                    </div>
+                  </section>
+                   
+
+                  <div class="modal-footer">
+                  <button class="modal-btn secondary-btn" id="saveResBtn" disabled>Lưu mật khẩu</button>
+                </div>
+              </div>
+              <div class="change-email-modal box">
+                <h2 class="modal-tab">Thay đổi email</h2>
+                <section class="modal-body">
+                  <form class="modal-form form-email"  action="/user/me/email" method="POST">
+                    <div class="modal-form-group">
+                          <label for="email">Email mới </label>
+                  <input type="email" name="email" placeholder="Nhập đỉa chỉ email mới" id="newEmail">
+                    </div>
+                          <div class="modal-form-group">
+                          <label for="password">Xác nhận mật khẩu </label>
+                  <input type="password" name="password" placeholder="Xác nhận mật khẩu">
+                    </div>
+                    <div class="modal-form-group">
+                      <span class="modal-hlp-txt">* Bạn sẽ đăng nhập lại nếu đổi mật khẩu thành công</span>
+                    </div>
+                  </form>
+                  <div class="password-guidelines">
+                    <div class="guidelines-description">
+                      <p>- Bạn sẽ đăng nhập lại hệ thống nếu đổi email thành công</p>
+                      <p>- Báo lỗi nếu email bạn nhập bị trùng hoặc đã được đăng kí trước đó</p>
+                    </div>
+                  </div>
+                </section>
+                <div class="modal-footer">
+                  <button class="modal-btn secondary-btn" id="saveEmailBtn">Lưu thay đổi</button>
+                </div>
+            </div>
+          </div>
+    </div>
+
+  </div>
+
+<!-- <center>
+<strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a></strong>
+</center> -->
+<br>
+<br>
+  
+
+<!-- container -->
+   
+</div>
+ <% include ./partials/footer %>
+ <style>
+   
+
+
+
+.show{
+  display: flex;
+}
+.change-password-modal,.change-email-modal {
+  width: 100%;
+  display: none;
+  /*margin-left: 45%;
+  margin-top: 100px;*/
+
+  flex-direction: column;
+  border-radius: 2px;
+  height: 400px;
+  padding: 0 10px;
+  /*box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);*/
+}
+
+.modal-tab {
+  margin:10px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #3C414F;
+}
+.modal-body {
+  display: flex;
+  justify-content: space-between;
+  
+}
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+ 
+ 
+}
+ 
+ .modal-form-group .modal-hlp-txt {
+    font-size: 14px;
+  }
+.modal-form-group input {
+    font-size: 13px;
+    padding: 10px 0px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    outline: none;
+  }
+.modal-form-group label {
+    color: #3C414F;
+    font-weight: 600;
+  }
+.modal-form, .password-guidelines {
+  width: 45%;
+  padding: 10px 10px;
+
+
+}
+.password-guidelines {
+  border-radius: 2px;
+ /* border: 1px solid #ccc;*/
+  padding: 0px 10px;
+  height: 75%;
+}
+.guidelines-header {
+  color: #3C414F;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px;
+}
+.guidelines-sub-header {
+  color: #3C414F;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 0px;
+}
+.guidelines-description p {
+    color: #7a7676;
+    margin-bottom: 5px;
+   
+  }
+  
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-btn {
+  margin: 20px 10px;
+  min-width: 200px;
+  font-size: 14px;
+  padding: 8px;
+  background: #EC5D10;
+  border-radius: 2px;
+  border: none;
+  color:white;
+}
+.modal-btn:disabled{
+  background-color: #f6f9fb;
+  color: #93a3b5;
+
+  
+}
+/***
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+body {
+  background: #F1F3FA;
+}
+
+/* Profile container */
+.profile {
+  margin: 100px 0;
+  margin-bottom: 0px;
+  padding: 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+  height: 40px;
+  padding: 0 10px;
+  line-height: 40px;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li  {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul  :hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+  cursor: pointer;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active  {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 400px;
+}
+.control-panel .nav-bar ul,.control-panel .action ul{
+  padding-top: 15px;
+}
+ </style>
+ <script src="/validation.js"></script>
+<script >
+$(document).ready(function(){
+  
+  $('.profile-usermenu ul li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+    console.log(tab_id)
+    $('.profile-usermenu ul li').removeClass('active');
+    $(this).addClass('active');
+    $('.box').removeClass('show')
+    $(`.change-${tab_id}-modal`).addClass('show')
+    console.log("Asad")
+    // $("#"+tab_id).addClass('current');
+  })
+  $('#saveResBtn').click(function(){
+    document.querySelector('.form-pass').submit()
+  })
+  $('#saveEmailBtn').click(function(){
+    document.querySelector('.form-email').submit()
+  })
+
+})
+
+
+
+
+
+
+</script>
+
+  </body>
+
+
+</html>

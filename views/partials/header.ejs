@@ -1,0 +1,39 @@
+
+ <div class="control-panel">
+   <header class="header">
+      <div class="logo-brand ">
+        <img src="https://livedemo00.template-help.com/wt_60033/images/logo-light.png" width="80px" height="50px"></img><span></span>
+      </div>
+      <div class="nav-bar upper-case center">
+         <ul>
+            <li class="center"><a href="/home">Trang chủ</a></li>
+            <li class="center"> <a href="/trips">Tuyến xe</a></li>
+            <li class="center"><a href="/home">Tuyển dụng</a></li>
+            <li class="center"><a href="/tickets">Kiểm vé</a></li>
+          </ul>
+      </div>
+      <div class="action faded">
+        <% if(typeof user != 'undefined'){ %>
+          <ul>
+            <li class="center">Liên hệ</li>
+          
+              <div class="dropdown center">
+                <a  class="dropbtn"><i class="fas fa-user fa-1x" style="color:var(--main);"></i></a>
+                <div class="dropdown-content">
+                  <a href="/user/me">Đổi mật khẩu</a>
+                  <a href="/user/logout">Đăng xuất</a>
+                </div>
+              </div>
+            
+          </ul>
+         
+        <% } else{%>
+           <ul>
+            <li class="center" style="float:right;"><a href="/user/account#dangki"  >Đăng kí</a></li>
+            <li class="center"><a href="/user/account#dangnhap" >Đăng nhập</a></li>
+
+          </ul>
+        <% }%>
+      </div>
+    </header>
+  </div>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Flatpickr CSS-->
+    <% include ./partials/links %>
+   
+   <title>ticketMe| Mua vé Sài Gòn Kiên Giang</title>
+  </head>
+<body>
+<div class="container">
+    <% include ./partials/header %>
+
+  <div id="myloader" class="loader">
+    <img src="https://flevix.com/wp-content/uploads/2019/12/Loading-Image-2.gif"/>
+  </div>
+
+  <div class="progress-steps-bar center">
+    <ul id="progress">
+      <li id="step1"  data-target="step1">CHỌN TUYẾN</li>
+      <li id="step2" data-target="step1">CHỌN GHẾ</li>
+      <li id="step3" data-target="step1">THÔNG TIN</li>
+      <li id="step4" data-target="step1">THANH TOÁN</li>
+
+    </ul>
+  </div>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content center">
+      <p><i class="fas fa-exclamation-circle fa-1x" style="margin-right: 20px; color: #f55448"></i>Không tìm thấy chuyến phù hợp </p>
+    </div>
+
+  </div>
+      <p class="seat-pick"></p>
+        <section class="top-container">
+
+                <% include ./partials/seatmap %>
+                  
+                      <div class="top-box top-box-a text-uppercase">
+                          <p><h3>CHUYẾN XE</h3></p>
+                          <p>from<span> SÀI GÒN</span></p>
+                          <p>to<span> KIÊN GIANG</span></p>
+                          <input type="text" id="basicDate" value="2020-05-17" placeholder="Ngày di chuyển" class="center" data-input>
+
+                          <select name="format" id="time">
+                          </select>
+                      </div>
+                      <div class="top-box top-box-b text-uppercase">
+                        <h4>CHI TIẾT CHUYẾN XE</h4>
+                        <p class="price">$299/mo</p>
+                        <a href="" class="btn">Buy Now</a>
+                      </div>
+            </section>
+<% include ./partials/footer %>
+<style>
+    .top-container {
+  margin-top:30px;
+  padding: 0 50px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: auto 40% 30%;
+  grid-template-areas:
+    ' top-box-a showcase showcase '
+    ' top-box-b showcase showcase ';
+}
+
+.passenger-info,.passenger-payment{
+  display:none;
+  grid-area: showcase;
+  height: 500px;
+  padding:50px 100px;
+}
+.passenger-info input{
+  
+}
+.showcase {
+  grid-area: showcase;
+  min-height: 300px;
+  padding: 1rem;
+  display:none;
+  flex-direction: column;
+  background:#e3dcdc;
+  opacity: 0.8;
+}
+.instep{
+  display:grid;
+}
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}
+
+/* Top Box */
+.top-box {
+  background: var(--primary);
+  text-align: center;
+  border:1px solid #e0d8d7;
+  padding: 0.5rem;
+}
+
+.top-box .price {
+  font-size: 2.5rem;
+}
+
+.top-box-a {
+  grid-area: top-box-a;
+  /*margin-left:10%;*/
+}
+
+.top-box-b {
+  grid-area: top-box-b;
+  /*margin-right:10%;*/
+ 
+}
+.seat-map{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-gap:30px;
+  text-align:center;
+}
+#seat-map-columns button{
+width:70px;
+height:50px;
+margin:30px 10px;
+cursor: pointer;
+color:white;
+background-color: #a6a6a6; border-radius: 2px;
+border:none;
+outline: none;
+
+}
+#seat-map-columns .selected{
+  background: var(--main);
+}
+#seat-map-columns button:hover{
+  background: var(--main);
+}
+#seat-map-columns button:disabled {
+  background: red;
+}
+input,option{
+  outline: none;
+}
+#time option:hover{
+  outline: none;
+}
+.loader {
+  position: fixed; 
+  display:flex;
+  justify-content:center;
+  align-items:center;/* Stay in place */
+  z-index: 100; /* Sit on top */
+ /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed / / Fallback color */
+  background-color: rgba(218,218,218,0.9); /* Black w/ opacity */
+  visibility:hidden;
+ 
+}
+.loader img{
+  width:400px;
+   
+}
+.seat-pick{
+  margin-left:50%;
+}
+.show {
+  animation:fade 2s;
+  animation-fill-mode:forwards;
+}
+@keyframes fade {
+
+    100%{
+    opacity:0;
+    visibility:hidden;
+    }
+}
+@media (max-width: 420px) {
+  .top-container {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'top-box-a'
+      'top-box-b'
+        'showcase ';
+  }
+ #seat-map-columns button{
+ width:40px;
+  height:30px;
+  margin:10px;
+
+
+}
+
+}
+
+</style>
+  
+<script src="/book.js" ></script>
+<script>
+$(document).ready(function(){
+  $(window). scrollTop(0);
+  
+})
+
+</script>
+  
+  </div>
+</body>
+
+
+</html>

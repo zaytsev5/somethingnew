@@ -1,0 +1,32 @@
+<% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+<div class="notification error">
+  <i class="fas fa-exclamation-circle fa-1x" style="margin-right: 15px; color: #f55448"></i><%= error.msg %>
+  
+</div>
+<% }); %> <% } %>
+ <% if(success_msg != ''){ %>
+<div class="notification success">
+  <i class="fas fa-check-circle fa-1x" style="margin-right: 15px; color: green"></i><%= success_msg %>
+ 
+</div>
+<% } %> <% if(error_msg != ''){ %>
+<div class="notification error">
+  <i class="fas fa-exclamation-circle fa-1x" style="margin-right: 15px; color: #f55448"></i><%= error_msg %>
+  
+</div>
+<% } %> <% if(error != ''){ %>
+<div class="notification error">
+  <i class="fas fa-exclamation-circle fa-1x" style="margin-right: 15px; color: #f55448"></i><%= error %>
+ 
+</div>
+<% } %>
+
+<script type="text/javascript">
+  setTimeout(() => {
+	
+     document.querySelector('.notification').style.display="none"
+  },3000)
+ 
+
+</script>
+

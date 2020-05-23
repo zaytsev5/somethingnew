@@ -1,0 +1,90 @@
+<div id="form-control">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        ticketMe
+      </h1>
+      <% include ./partials/messages %>
+        <div class="form-register"
+            <form action="/getting-started/register" method="POST">
+              <div class="form-group">
+               
+                <input
+                  type="name"
+                  id="name"
+                  name="name"
+                 placeholder="Enter Name"
+                  value="<%= typeof name != 'undefined' ? name : '' %>"
+                />
+              </div>
+              <div class="form-group">
+              
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter Email"
+                  value="<%= typeof email != 'undefined' ? email : '' %>"
+                />
+              </div>
+              <button type="submit" id="moveBtn">
+                <strong>Tiếp tục</strong>
+              </button>
+              <p class="lead mt-4">Have An Account? <a href="/getting-started/login">Đăng kí</a></p>
+            </form>
+        </div>
+      
+    </div>
+  </div>
+</div>
+ <style>
+   
+    body{
+      font-family: 'Montserrat', sans-serif;
+    }
+    h1{
+      margin-bottom:20px;
+      color:var(--main);
+    }
+    .form-register{
+      width:30%;
+      height:210px;
+      margin-left:50%;
+      transform:translate(-50%,0);
+      border-radius:2px;
+      border:1px solid #e3dada;
+     box-shadow:  0 1px 2px rgba(104, 104, 104, 0.8);
+
+    }
+    .form-register input{
+      height:3.5em;
+      margin-bottom:10px;
+    }
+    form .form-group{
+      padding-bottom :20px;
+    }
+    #form-control{
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1{
+      text-align: center;
+    }
+    input{
+      width: 60%;
+      height: 25px;
+      border:none;
+      border-bottom: 1px solid gray;
+      font-family: 'Montserrat', sans-serif;
+    }
+    #moveBtn{
+      width: 100px;
+      height: 30px;
+      background-color: var(--main);
+      color:white;
+      font-family: 'Montserrat', sans-serif;
+      border: none;
+      border-radius: 2px;
+
+    }
+  </style>

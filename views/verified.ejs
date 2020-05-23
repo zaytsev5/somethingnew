@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Flatpickr CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+    <!-- My own CSS -->
+    <link rel="stylesheet" type="text/css" href="/panel.css">
+    <link rel="stylesheet" type="text/css" href="glider.css">
+
+     <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
+    <link rel="stylesheet" href="/glide.core.min.css">
+    <link rel="stylesheet" href="/glide.theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+
+     
+    <!-- Import font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--  Flatpickr  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+
+   <title>ticketMe| Trang chủ</title>
+  </head>
+  <body>
+<div class="container">
+    <% include ./partials/header %>
+    <img class="img-verified" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2614a027236645.56361cc2c40e4.png" alt="">
+    <p class="annoucement greeting">Chúc mừng ! Bạn đã đặt vé thành công</p>
+    <p class="annoucement redirect">Hệ thống sẽ chuyển hướng trong 5 giây nữa</p>
+
+</div>
+
+  </body>
+<style>
+  img{
+    width:300px;
+    height: 200px;
+    margin-top: 200px;
+    margin-left: 50%;
+    transform: translate(-50%,0);
+  }
+  .annoucement{
+     text-align: center;
+    font-size: 20px;
+  }
+  .greeting{
+    color:green;
+  }
+  
+</style>
+<script>
+  $(document).ready(function(){
+    const redirect = document.querySelector('.redirect')
+    let index = 5;
+   const loop =  setInterval(function(){
+      if(index < 0 ) return window.location='http://192.168.1.4:5000/home'
+        redirect.textContent = `Hệ thống sẽ chuyển hướng trong ${index} giây`
+        index --;
+
+
+    },1000)
+
+  })
+</script>
+
+</html>

@@ -1,0 +1,280 @@
+ 
+          
+ <div class="nav">
+  <input type="checkbox" id="nav-check" placeholder="nguyen">
+  <div class="nav-header">
+    <div class="nav-title">
+      Buta BusLine
+    </div>
+  </div>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+  
+  <div class="nav-links">
+    <a href="//github.io/jo_geek" target="_blank">Github</a>
+    <a href="/book-ticket" target="_blank">Stackoverflow</a>
+    <a href="https://in.linkedin.com/in/jonesvinothjoseph" target="_blank">LinkedIn</a>
+    <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
+    <%if (user.role == "admin") { %>
+        <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">Buta BusLine</a>
+    <% }else{ %>
+    
+        <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a>
+
+    <% } %>
+  </div>
+</div>
+         
+       
+<div id="form-control">
+    <h1 class="home">Welcome</h1>
+    <p class="lead mb-3"> <%= user.name %></p>
+
+    <button id="logBtn"><a href="/getting-started/logout" >Logout</a></button>
+
+</div>
+<p>Click the button to create a P element with some text, and append it to DIV.</p>
+<div id="row">
+<div class="seat-map">
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button disabled>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+</div>
+<div class="seat-map">
+  <button>A1</button>
+  <button>A1</button>
+  <button disabled>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button disabled>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+</div>
+<div class="seat-map">
+  <button>A1</button>
+  <button>A1</button>
+  <button disabled>A1</button>
+  <button>A1</button>
+  <button disabled>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+  <button disabled>A1</button>
+  <button>A1</button>
+  <button>A1</button>
+</div>
+</div>
+
+
+
+<script>
+let add= "add";
+
+  let seatDetails =[
+      {
+        isBook : false,
+        seat:"A1"
+      },
+      {
+        isBook : true,
+         seat:"A2"
+      },
+      {
+        isBook : false,
+         seat:"A3"
+      },
+      {
+        isBook : true,
+         seat:"A4"
+      }
+]
+function myFunction() {
+for(let i = 0; i<4; i++){
+  var para = document.createElement("BUTTON");
+   para.innerHTML = "<a href='https://www.facebook.com' id='"+seatDetails[i].seat+"' >Link me</a>";
+   document.getElementById("myDIV").appendChild(para);
+ }
+}
+</script>
+
+<script></script>
+ <style>
+ #row{
+ margin:auto;
+ width:100%;
+ }
+ .seat-map{
+   float: left;
+  width: 33.33%;
+  
+
+ }
+   #left-side {
+
+width:40%;
+  padding-right:10px;
+}
+button{
+cursor:poiter;
+      height: 30px;
+color:white;
+  width:50px;
+  margin-left:50px;
+   background-color: #a6a6a6; border-radius: 2px;
+   border:none;
+}
+#right-side {
+width:40%;
+margin-left:40%;
+margin-top:0px;
+}
+button:disabled,
+button[disabled],button[disabled]:hover{
+ 
+  background-color: #ff3333;
+  color: white;
+}
+button{
+margin-right:10px;
+margin-bottom:10px;
+}
+button:hover{
+   background-color: #339933;
+}
+a{
+text-decoration:none;
+}
+#a32{color:green;}
+    body{
+      font-family: 'Montserrat', sans-serif;
+    }
+   #form-control{
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1{
+      text-align: center;
+    }
+    a{
+    color:black;
+    text-decoration:none;
+    }
+     #logBtn{
+      width: 100px;
+      height: 30px;
+      background-color: #1e62d8; border-radius: 2px;
+      color:white;
+      font-family: 'Montserrat', sans-serif;
+      border: none;
+     
+
+    }
+    * {
+  box-sizing: border-box;
+}
+
+
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: #4d4d4d;
+  position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+   
+  </style>

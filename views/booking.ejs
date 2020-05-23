@@ -1,0 +1,105 @@
+
+<div class="control-panel ">
+  <!-- Header -->
+    <header class="header">
+      <div class="logo-brand upper-case">
+        <i class="fas fa-bus"></i><span><strong> Book</strong>Your<strong>Bus</strong></span>
+      </div>
+      <div class="action faded">
+        <% if(typeof user != 'undefined'){ %>
+          <ul>
+            <li>Home</li>
+            <li><a href="/getting-started/logout" >Logout</a></li>
+          </ul>
+        <% } else{%>
+           <ul>
+            <li>Hot line |</li>
+            <li>056.334.435</li>
+
+          </ul>
+        <% }%>
+      </div>
+    </header>
+      <!-- Navigation -->
+      <nav class="main-nav faded">
+        <div class="navbar">
+          <ul>
+            <li>Home</li>
+            <li>Trips</li>
+            <li>Hiring</li>
+            <li>Booking</li>
+          </ul>
+        </div>
+      </nav>
+
+    <!-- Top Container -->
+</div>
+<div class="progress-bar upper-case faded">
+        <div class="bar ticket ">
+          <p><i class="fas fa-bus"></i><span>ticket</span></p>
+        </div>
+        <div class="bar passenger onstep">
+        <p><i class="fas fa-train"></i><span>passenger</span></p>
+        </div>
+        <div class="bar payment">
+        <p><i class="fas fa-plane"></i><span>payment</span></p>
+        </div>
+        <div class="bar validation">
+         <p><i class="fas fa-user"></i><span>validation</span></p>
+        </div>
+</div>
+
+<section class="top-container">
+  <header class="showcase">
+    <div class="seat-map">
+      <div id="seat-map-columns">
+        <button class="seat"><a href="http://localhost:5000/booking-ticket?deleteId=SGKG004" >Delelt</a></button>
+        <button class="seat">A2</button>
+        <button class="seat">A3</button>
+        <button class="seat">A4</button>
+        <button class="seat">A5</button>
+         <button class="seat">A5</button>
+          <button class="seat">A2</button>
+        <button class="seat">Afđ3</button>
+        <button class="seat">A4</button>
+        <button class="seat">A5</button>
+      </div>
+      <div id="seat-map-columns">
+        <button class="seat">A1</button>
+        <button class="seat">A2</button>
+        <button class="seat">Afđ3</button>
+        <button class="seat">A4</button>
+        <button class="seat">A5</button>
+             <button class="seat">A5</button>
+              <button class="seat">A2</button>
+        <button class="seat">Afđ3</button>
+        <button class="seat">A4</button>
+        <button class="seat">A5</button>
+      </div>
+      <div id="seat-map-columns">
+        <button disabled class="seat" >A1</button>
+        <button class="seat">A2</button>
+        <button class="seat">A3</button>
+        <button class="seat">A4</button>
+        <button class="seat">A5</button>
+        <button class="seat">A5</button>
+         <button class="seat">A2</button>
+        <button class="seat">Afđ3</button>
+        <button class="seat">A4</button>
+        <button class="seat">A5</button>
+      </div>
+    </div>
+   
+  </header>
+      <div class="top-box top-box-a text-uppercase">
+        <h4>Membership</h4>
+        <p class="price">$199/mo</p>
+        <a href="" class="btn">Buy Now</a>
+      </div>
+      <div class="top-box top-box-b text-uppercase">
+        <h4>Pro Membership</h4>
+        <p class="price">$299/mo</p>
+        <a href="" class="btn">Buy Now</a>
+      </div>
+</section>
+<script src="main.js"></script>

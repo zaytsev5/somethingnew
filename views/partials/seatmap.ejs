@@ -1,0 +1,132 @@
+<header class="showcase step2 instep" >
+                    <div class="seat-map">
+                      <div id="seat-map-columns">
+                        <button class="seat" id="A01">A01</button>
+                        <button class="seat" id="A02">A02</button>
+                        <button class="seat" id="A03">A03</button>
+                        <button class="seat" id="A04">A04</button>
+                        <button class="seat" id="A05">A05</button>
+                        <button class="seat" id="A06">A06</button>
+                        <button class="seat" id="A07">A07</button>
+                        <button class="seat" id="A08">A08</button>
+                        <button class="seat" id="A09">A09</button>
+                        <button class="seat" id="A10">A10</button>
+                      </div>
+                      <div id="seat-map-columns">
+                        <button class="seat" id="A11">A11</button>
+                        <button class="seat" id="A12">A12</button>
+                        <button class="seat" id="A13">A13</button>
+                        <button class="seat" id="A14">A14</button>
+                        <button class="seat" id="A15">A15</button>
+                        <button class="seat" id="A16">A16</button>
+                        <button class="seat" id="A17">A17</button>
+                        <button class="seat" id="A18">A18</button>
+                        <button class="seat" id="A19">A19</button>
+                        <button class="seat" id="A20">A20</button>
+                      </div>
+                      <div id="seat-map-columns">
+                        <button class="seat" id="A21">A21</button>
+                        <button class="seat" id="A22">A22</button>
+                        <button class="seat" id="A23">A23</button>
+                        <button class="seat" id="A24">A24</button>
+                        <button class="seat" id="A25">A25</button>
+                        <button class="seat" id="A26">A26</button>
+                        <button class="seat" id="A27">A27</button>
+                        <button class="seat" id="A28">A28</button>
+                        <button class="seat" id="A29">A29</button>
+                        <button class="seat" id="A30">A30</button>
+                        
+
+                      </div> 
+                      <a class="forward" href="#" data-target="step3">Continue</a>
+                    </div>
+                   
+                  </header>
+                  <div class="passenger-info step3" >
+                    <form id="form">
+                          <div class="input-box">
+                            <label class="input-label">Tên khách hàng</label>
+                            <input id="name" type="text"  value="<%= typeof userInfo != 'undefined' ? userInfo.TenKH : '' %>" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" />
+                          </div>
+                          <div class="input-box ">
+                            <label class="input-label">Email</label>
+                            <input  id="email" type="text" value="<%= typeof userInfo != 'undefined' ? userInfo.Email : '' %>" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" />
+                          </div>
+                          <div class="input-box ">
+                            <label class="input-label">Số điện thoại</label>
+                            <input  id="phone" type="text" value="<%= typeof userInfo != 'undefined' ? userInfo.SDT : '' %>" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" />
+                          </div>
+                          <div class="input-box ">
+                            <label class="input-label">CMND</label>
+                            <input  id="uid" type="text" value="<%= typeof userInfo != 'undefined' ? userInfo.CMND : '' %>" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" required/>
+                          </div>
+                          <div class="input-box active-grey">
+                            <label class="input-label">Giới tính</label>
+                            <input  id="gender" type="text" value="<%= typeof userInfo != 'undefined' ? userInfo.GioiTinh : '' %>" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" />
+                          </div>
+
+                          
+                          <div class="clear"></div>
+                    </form>
+                    <a class="forward" href="#" data-target="step2">Back</a>
+                    <a class="forward" href="#" data-target="step4">Continue</a>
+                    <button class="call-api" onclick="addCustomerAndTicket()">Add test</button>
+                    
+
+                 </div>
+                 <div class="passenger-payment step4" >
+                    <form id="form">
+                         
+
+                          
+                          <div class="clear"></div>
+                    </form>
+                    <a class="forward" href="#" data-target="step3">Continue</a>
+                    <button  class="btn btn-primary pull-right" onclick="show()">Button</button>
+                    
+
+                 </div>
+   
+
+<script>
+const name = document.querySelector('#name');
+const email = document.querySelector('#email');
+const phone = document.querySelector('#phone');
+const uid = document.querySelector('#uid');
+const gender = document.querySelector('#gnder');
+const input = document.querySelectorAll('.input-box');
+
+console.log(input[0].getElementsByTagName('input')[0].value)
+
+if(input[0].getElementsByTagName('input')[0].value.length > 0){
+  input.forEach((i) =>{
+      i.classList.add('active');
+      i.getElementsByTagName('input')[0].disabled = true;
+  })
+
+}
+
+
+
+function show(){
+    console.log("Asdadsa")
+}
+function setFocus(on) {
+  var element = document.activeElement;
+  if (on) {
+    setTimeout(function () {
+      element.parentNode.classList.add("focus");
+    });
+  } else {
+    let box = document.querySelector(".input-box");
+    box.classList.remove("focus");
+    $("input").each(function () {
+      var $input = $(this);
+      var $parent = $input.closest(".input-box");
+      if ($input.val()) $parent.addClass("focus");
+      else $parent.removeClass("focus");
+    });
+  }
+}
+
+</script>
